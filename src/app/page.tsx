@@ -1,5 +1,6 @@
 "use client"
 
+import SignInForm from "@/components/form/SignInForm";
 import { signIn, signOut, useSession } from "next-auth/react";
 import React from "react";
 
@@ -11,7 +12,7 @@ const Homepage = () => {
       {session ? (
         <>
 
-        <div className="flex items-center gap-4">
+        <div>
           {/* Surrounding div to make image stand out */}
           <div className="p-0.5 border-2 border-gray-300 rounded-full">
             <img 
@@ -27,17 +28,6 @@ const Homepage = () => {
             </h1>
           </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-
           <p>{session.user?.email}</p>
 
           <button onClick={() => signOut()}  className="border border-black rounded-lg px-5 py-1 mt-2 ml-2 ">
@@ -45,22 +35,8 @@ const Homepage = () => {
           </button>
         </>
       ) : (
-        <div>
-          <h1 className="text-3xl text-red-500 font-bold">You're not logged in</h1>
-          <div className="flex space-x-5 ">
-          <button 
-            onClick={() => signIn("google")} 
-            className="border border-black rounded-lg mt-2 px-5 py-1"
-          >
-            Sign in with Google
-          </button>
-          <button 
-            onClick={() => signIn("github")} 
-            className="border border-black rounded-lg px-5 py-1 mt-2 ml-2 "
-          >
-            Sign in with GitHub
-          </button>
-          </div>
+        <div className="w-full max-w-md bg-gray-100 p-8 rounded-lg shadow-md">
+         <SignInForm/>
         </div>
       )}
     </div>

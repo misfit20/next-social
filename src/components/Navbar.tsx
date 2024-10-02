@@ -1,6 +1,9 @@
 "use client"
 import Link from "next/link"
 import MobileMenu from "./MobileMenu"
+import { Button, buttonVariants } from "@/components/ui/button"
+import {LogIn, House, Rocket} from 'lucide-react';
+
 const Navbar = () => {
 
     return (
@@ -14,17 +17,17 @@ const Navbar = () => {
                 {/* LINKS */}
                 <div className='flex gap-6 text-gray-600'>
                     <Link href ='/' className="flex gap-2 items-center">
-                    <img src ='home.png' width={16} height={16} className = "w-4 h-4"/>
+                    <House />
                     <span>Homepage</span>
                     </Link>
 
                     <Link href ='/' className="flex gap-2 items-center">
-                    <img src ='friends.png' width={16} height={16}  className = "w-4 h-4"/>
+                    <Rocket />
                     <span>Campaigns</span>
                     </Link>
 
                     <Link href ='/' className="flex gap-2 items-center">
-                    <img src ='stories.png' width={16} height={16}  className = "w-4 h-4"/>
+                    <LogIn />
                     <span>Login</span>
                     </Link>
                     
@@ -35,16 +38,18 @@ const Navbar = () => {
         
 
         <div className = "cursor-pointer">
-            <img src="people.png" alt="" width={20} height={20}/>
+            <img src="/people.png" alt="" width={20} height={20}/>
         </div>
 
         <div className = "cursor-pointer">
-            <img src="messages.png" alt="" width={20} height={20}/>
+            <img src="/messages.png" alt="" width={20} height={20}/>
         </div>
 
         <div className = "cursor-pointer">
-            <img src="notifications.png" alt="" width={20} height={20}/>
+            <img src="/notifications.png" alt="" width={20} height={20}/>
         </div>
+
+        <Link className={buttonVariants()} href="/">Sign in</Link> 
 
                 <MobileMenu/>
             </div>
