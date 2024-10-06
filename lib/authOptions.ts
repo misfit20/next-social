@@ -6,7 +6,7 @@ import FacebookProvider from "next-auth/providers/facebook";
 
 export const authOptions: NextAuthOptions ={
     pages: {
-        signIn: '/auth/sign-in',
+        signIn: '/api/signin',
     },
 
     providers: [

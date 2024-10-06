@@ -8,6 +8,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import GoogleSigninButton from "../ui/GoogleSigninButton";
+import { Mail, Lock} from "lucide-react";
 
 const FormSchema = z.object({
   email: z.string().min(1, 'Email is Required').email('Invalid email'),
@@ -38,7 +39,9 @@ return (
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Enter Your Email" {...field} />
+              <div className="flex gap-3">
+                <Input placeholder="example@gmail.com" {...field} /><Mail/>
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -54,7 +57,9 @@ return (
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Enter Your Password" type="password"{...field} />
+              <div className="flex gap-3">
+                <Input placeholder="Enter Your Password Here" {...field} type="password" /><Lock />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>

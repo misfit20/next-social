@@ -8,6 +8,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import GoogleSigninButton from "../ui/GoogleSigninButton";
+import { Mail, User, Lock, LockKeyhole } from "lucide-react";
 
 const FormSchema = z.object({
   username:z.string().min(5, 'Username cannot contain less than 5 characters').max(30, 'Username must have less than 30 characters'),
@@ -40,7 +41,7 @@ const onSubmit = (values:z.infer<typeof FormSchema>) => {
 
 return (
 <Form {...form}>
-<form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+<form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6 py-2">
 
       <div className="space-y-2">
 
@@ -51,7 +52,9 @@ return (
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="johndoe" {...field} />
+                <div className="flex gap-3">
+                <Input placeholder="johndoe" {...field} /><User />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -65,9 +68,12 @@ return (
           name="email"
           render={({ field }) => (
             <FormItem>
+             
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Enter Your Email" {...field} />
+              <div className="flex gap-3">
+                <Input placeholder="example@gmail.com" {...field} /><Mail/>
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -83,7 +89,9 @@ return (
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Enter Your Password" type="password"{...field} />
+              <div className="flex gap-3">
+                <Input placeholder="Enter Your Password Here" {...field} type="password" /><Lock />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -99,7 +107,9 @@ return (
             <FormItem>
               <FormLabel>Re-Enter your password</FormLabel>
               <FormControl>
-                <Input placeholder="Re-Enter your password" type="password"{...field} />
+              <div className="flex gap-3">
+                <Input placeholder="Re-Enter Your Password Here" {...field} type="password" /><LockKeyhole />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
