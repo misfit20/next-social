@@ -17,7 +17,7 @@ const Home = () => {
                 Your Guide to Trusted Reviews
               </h1>
               <p className="py-5 text-xl leading-relaxed text-gray-500 lg:text-2xl dark:text-gray-300">
-                Kibung Reviews is your go-to platform for discovering and rating local businesses. Whether you're exploring catering, crafting, or grocery services, easily share your feedback and help others find top-quality providers.
+                Kibung Reviews is your go-to platform for discovering and rating local businesses. Whether you are exploring catering, crafting, or grocery services, easily share your feedback and help others find top-quality providers.
               </p>
               <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
                 <a
