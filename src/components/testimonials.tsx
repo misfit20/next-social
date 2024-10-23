@@ -38,7 +38,7 @@ export const Testimonials = () => {
       <div className="flex flex-col justify-between w-full h-full bg-gray-800 px-14 rounded-2xl py-14 dark:bg-trueGray-800 bg-opacity-15
        transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-opacity-15">
         <p className="text-2xl leading-normal text-black">
-          This is an <Mark>awesome</Mark> landing page template I've seen. I would use this for anything.
+          This is an <Mark>awesome</Mark> landing page template I have seen. I would use this for anything.
         </p>
         <Avatar
           image={userThreeImg}
