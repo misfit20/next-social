@@ -1,0 +1,91 @@
+import Image from "next/image";
+import React from "react";
+import { Container } from "./Container";
+import userOneImg from "../../public/user1.jpg";
+import userTwoImg from "../../public/user2.jpg";
+import userThreeImg from "../../public/user3.jpg";
+
+
+
+export const Restaurants = () => {
+  return (
+    
+          <Container>
+            <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
+              <div className="lg:col-span-2 xl:col-auto">
+                <div className="flex flex-col justify-between w-full h-full bg-gray-800 px-14 rounded-2xl py-14 dark:bg-trueGray-800 bg-opacity-15 
+                  transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-opacity-15">
+                  <h3 className="text-3xl font-semibold text-white">Restaurant One</h3>
+                  <p className="text-xl text-gray-400">123 Main St, Springfield</p>
+                  <div className="flex items-center mt-4">
+                    <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    <p className="ml-2 text-gray-400">(4.9)</p>
+                  </div>
+                </div>
+              </div>
+      
+              <div className="">
+                <div className="flex flex-col justify-between w-full h-full bg-gray-800 px-14 rounded-2xl py-14 dark:bg-trueGray-800 bg-opacity-15 
+                  transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-opacity-15">
+                  <h3 className="text-3xl font-semibold text-white">Restaurant Two</h3>
+                  <p className="text-xl text-gray-400">456 Maple Ave, Springfield</p>
+                  <div className="flex items-center mt-4">
+                    <span className="text-yellow-500">⭐⭐⭐⭐</span>
+                    <p className="ml-2 text-gray-400">(4.7)</p>
+                  </div>
+                </div>
+              </div>
+      
+              <div className="">
+                <div className="flex flex-col justify-between w-full h-full bg-gray-800 px-14 rounded-2xl py-14 dark:bg-trueGray-800 bg-opacity-15 
+                  transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-opacity-15">
+                  <h3 className="text-3xl font-semibold text-white">Restaurant Three</h3>
+                  <p className="text-xl text-gray-400">789 Elm St, Springfield</p>
+                  <div className="flex items-center mt-4">
+                    <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    <p className="ml-2 text-gray-400">(4.8)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Container>
+        );
+      };
+      
+
+interface AvatarProps {
+  image: any;
+  name: string;
+  title: string;
+}
+
+function Avatar(props: Readonly<AvatarProps>) {
+  return (
+    <div className="flex items-center mt-8 space-x-3">
+      <div className="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
+        <Image
+          src={props.image}
+          width="40"
+          height="40"
+          alt="Avatar"
+          placeholder="blur"
+        />
+      </div>
+      <div>
+        <div className="text-lg font-medium">{props.name}</div>
+        <div className="text-gray-600 dark:text-gray-400">{props.title}</div>
+      </div>
+    </div>
+  );
+}
+
+function Mark(props: { readonly children: React.ReactNode }) {
+  return (
+    <>
+      {" "}
+      <mark className="text-indigo-800 bg-indigo-100 rounded-md ring-indigo-100 ring-4 dark:ring-indigo-900 dark:bg-indigo-900 dark:text-indigo-200">
+        {props.children}
+      </mark>{" "}
+    </>
+  );
+}

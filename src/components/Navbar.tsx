@@ -2,7 +2,7 @@
 import Link from "next/link"
 import MobileMenu from "./MobileMenu"
 import { Button, buttonVariants } from "@/components/ui/button"
-import {LogIn, House, Rocket} from 'lucide-react';
+import {LogIn, House, Rocket, Store, Star} from 'lucide-react';
 
 const Navbar = () => {
 
@@ -22,13 +22,13 @@ const Navbar = () => {
                     </Link>
 
                     <Link href ='/' className="flex gap-2 items-center">
-                    <Rocket />
-                    <span>Campaigns</span>
+                    <Store />
+                    <span>Add A Business</span>
                     </Link>
 
                     <Link href ='/' className="flex gap-2 items-center">
-                    <LogIn />
-                    <span>Login</span>
+                    <Star />
+                    <span>Drop a Review</span>
                     </Link>
                     
                 </div>
@@ -36,20 +36,28 @@ const Navbar = () => {
               {/* RIGHT */}
             <div className=' w-[30%] flex items-center gap-4 xl:gap-8 justify-end'>
         
-
+        {/*
         <div className = "cursor-pointer">
             <img src="/people.png" alt="" width={20} height={20}/>
         </div>
-
+        */}
+        
+         {/*
         <div className = "cursor-pointer">
             <img src="/messages.png" alt="" width={20} height={20}/>
-        </div>
+        </div>         
+         */}
+        
 
-        <div className = "cursor-pointer">
+
+         {/*
+         <div className = "cursor-pointer">
             <img src="/notifications.png" alt="" width={20} height={20}/>
         </div>
+         */}
+        
 
-        <Link className={buttonVariants()} href="/">Sign in</Link> 
+        <Link className={buttonVariants()} href="/api/signin">Sign in</Link> 
 
                 <MobileMenu/>
             </div>

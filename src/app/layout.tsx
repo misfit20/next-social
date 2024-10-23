@@ -7,8 +7,13 @@ import SessionWrapper from "../components/SessionWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kibung Web App",
-  description: "Social media app built with Next.js",
+  title: "Kibung Reviews",
+  description: "Discover and rate businesses both small and large.",
+  icons: {
+    icon:['/favicon.ico?v=4'],
+    apple:['/apple-touch-icon.png?v=4'],
+    shortcut:['/apple-touch-icon.png?']
+  }
 };
 
 export default function RootLayout({
