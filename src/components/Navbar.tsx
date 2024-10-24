@@ -3,6 +3,7 @@ import Link from "next/link"
 import MobileMenu from "./MobileMenu"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {LogIn, House, Rocket, Store, Star} from 'lucide-react';
+import { ModeToggle } from "./ui/toggle";
 
 const Navbar = () => {
 
@@ -58,6 +59,11 @@ const Navbar = () => {
         
 
         <Link className={buttonVariants()} href="/api/signin">Sign in</Link> 
+        <ul>
+            <li>
+                <ModeToggle/>
+            </li>
+        </ul>
 
                 <MobileMenu/>
             </div>
