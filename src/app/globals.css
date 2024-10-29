@@ -1,6 +1,6 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 @layer base {
@@ -60,6 +60,7 @@
   }
 }
 
+
 @layer base {
   * {
     border-color: hsl(var(--border)); /* Use the border color defined */
@@ -70,3 +71,4 @@
     color: hsl(var(--foreground)); /* Ensure text uses the foreground color */
   }
 }
+
