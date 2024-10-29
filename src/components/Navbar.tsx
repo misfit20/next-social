@@ -1,12 +1,16 @@
-"use client"
+
 import Link from "next/link"
 import MobileMenu from "./MobileMenu"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {LogIn, House, Rocket, Store, Star} from 'lucide-react';
 import { ModeToggle } from "./ui/toggle";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import { signOut } from "next-auth/react";
+import UserAccount from "./ui/UserAccount";
 
-const Navbar = () => {
-
+const Navbar = async() => {
+    const session = await getServerSession(authOptions);
     return (
         <div className = 'h-24 flex items-center justify-between'>
             {/* LEFT */}
@@ -22,7 +26,7 @@ const Navbar = () => {
                     <span>Homepage</span>
                     </Link>
 
-                    <Link href ='/' className="flex gap-2 items-center">
+                    <Link href ='/api/business-reg' className="flex gap-2 items-center">
                     <Store />
                     <span>Add A Business</span>
                     </Link>
@@ -57,8 +61,15 @@ const Navbar = () => {
         </div>
          */}
         
-
-        <Link className={buttonVariants()} href="/api/signin">Sign in</Link> 
+         
+       {session?.user ? (
+        <div>
+            <UserAccount/>
+        </div>
+       ) : (
+         <Link className={buttonVariants()} href="/api/signin">Sign in</Link>
+       )}
+            
         <ul>
             <li>
                 <ModeToggle/>

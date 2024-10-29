@@ -6,7 +6,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Testimonials } from "@/components/testimonials";
 import heroImage from "../../public/food.jpg";
 import * as Separator from "@radix-ui/react-separator";
-import { Scissors, ShoppingCart, UtensilsCrossed } from "lucide-react";
+import { Cpu, Scissors, ShoppingCart, UtensilsCrossed } from "lucide-react";
 import Image from "next/image";
 import { Button, buttonVariants } from "@/components/ui/button"
 import Link from "next/link";
@@ -27,6 +27,8 @@ const Home = () => {
           <Link className={buttonVariants()} href="#"><Scissors />Crafting</Link>
 
           <Link className={buttonVariants()} href="#"><ShoppingCart />Super Markets</Link> 
+
+          <Link className={buttonVariants()} href="#"><Cpu />Tech</Link> 
           </div>
               
   <SectionTitle preTitle="Restaurants"  title="Top Restaurants Near You">

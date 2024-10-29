@@ -1,30 +1,19 @@
-'use client';
+import SignInPage from "@/app/api/(auth)/signin/page";
+import { authOptions } from "@/lib/authOptions"
+import { getServerSession } from "next-auth"
 
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
-const Dashboard = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+const page = async () => {
+  const session = await getServerSession(authOptions);
 
-  // If the user is not authenticated, redirect them to the sign-in page
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/api/signin");
-    }
-  }, [status, router]);
-
-  // Optionally, you can show a loading state while the session is being checked
-  if (status === "loading") {
-    return <div>Loading...</div>;
+  if (session?.user) {
+    return(
+      <h2>DashBoard - Welcome to the Dashboard, {session?.user.username}!</h2>
+    )
   }
-
-  // If the user is authenticated, show the dashboard content
-  return (
-    <div>Welcome to the dashboard, {session?.user?.email}!</div>
-  );
+  return(
+    <SignInPage/>
+  )
 };
 
-export default Dashboard;
-
+export default page;

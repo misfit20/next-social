@@ -4,7 +4,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import FacebookProvider from "next-auth/providers/facebook";
 import { db } from './db';
-import { compare } from 'bcrypt';
+import { compare } from 'bcryptjs';
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 
@@ -76,8 +76,25 @@ export const authOptions: NextAuthOptions ={
           
     ],
 
+    callbacks: {
+      async jwt({ token, user}){
+        if(user) {
+          return{
+          ...token,
+          username: user.username
+        }
+      }
+        return token
 
- 
-
-
+      },
+      async session ({session, token}){
+        return{
+          ...session,
+          user: {
+            ...session.user,
+            username: token.username
+          }
+        }
+      },
+    }
 }
